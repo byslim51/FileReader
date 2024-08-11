@@ -1,10 +1,10 @@
-package chapter14.test;
+package task_1;
 
 import java.io.File;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class Test_count {
+public class Count_Word_Sentence {
     static String directory;
 
     public String getFileName() {

@@ -1,14 +1,14 @@
-package chapter14.test;
+package task_1;
 
-import task1.B;
-
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.Scanner;
 
-public class Test {
-    private int wordCount =  new Test_count().countWords();
-    private int sentenceCount =  new Test_count().countSentence();
-    private String fileName = new Test_count().getFileName();
+public class File_Statistics {
+    private int wordCount =  new Count_Word_Sentence().countWords();
+    private int sentenceCount =  new Count_Word_Sentence().countSentence();
+    private String fileName = new Count_Word_Sentence().getFileName();
 
 
     public void createNewFile() {
@@ -40,7 +40,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        Test test = new Test();
-        test.createNewFile();
+        File_Statistics fileStatistics = new File_Statistics();
+        fileStatistics.createNewFile();
     }
 }
