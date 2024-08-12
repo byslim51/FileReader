@@ -14,7 +14,8 @@ public class File_Statistics {
     public void createNewFile() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Укажите путь где хотите создать файл:");
-        File file = new File(scan.nextLine() + "\\" + "statistics " + fileName);
+        fileName = fileName.substring(0, fileName.length() - 4);
+        File file = new File(scan.nextLine() + "\\" + fileName + " statistics");
 
         try {
             if (file.createNewFile()) {

@@ -5,9 +5,13 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Count_Word_Sentence {
-    static String directory;
+    private static String directory;
 
-    public String getFileName() {
+    public static String getDirectory() {
+        return directory;
+    }
+
+    public static String getFileName() {
         File file = new File(directory);
         return file.getName();
     }
