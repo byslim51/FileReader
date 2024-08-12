@@ -5,22 +5,20 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Count_Word_Sentence {
-    private static String directory;
+    private static File file;
 
-    public static String getDirectory() {
-        return directory;
+    public static File getDirectory() {
+        return file;
     }
 
     public static String getFileName() {
-        File file = new File(directory);
         return file.getName();
     }
 
     public void setDirectory() {
         Scanner scanUserInput = new Scanner(System.in);
-
-        System.out.println("Введите путь к файлу:");
-        directory = scanUserInput.nextLine();
+        System.out.println("Введите полный путь к файлу:");
+        file = new File(scanUserInput.nextLine());
     }
 
     public int countWords() {
@@ -28,7 +26,7 @@ public class Count_Word_Sentence {
         setDirectory();
 
         try {
-            Scanner scan = new Scanner(new FileReader(new File(directory)));
+            Scanner scan = new Scanner(new FileReader(file));
 
             while (scan.hasNext()) {
                 scan.next();
@@ -44,7 +42,7 @@ public class Count_Word_Sentence {
         int sentence = 0;
 
         try {
-            Scanner scan = new Scanner(new FileReader(new File(directory)));
+            Scanner scan = new Scanner(new FileReader(file));
             scan.useDelimiter("(?<=[.!?])");
 
             while (scan.hasNext()) {
@@ -55,7 +53,6 @@ public class Count_Word_Sentence {
             ex.printStackTrace();
         }
         return sentence;
-
 
 
     }

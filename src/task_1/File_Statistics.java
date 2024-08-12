@@ -6,22 +6,31 @@ import java.io.FileWriter;
 import java.util.Scanner;
 
 public class File_Statistics {
-    private int wordCount =  new Count_Word_Sentence().countWords();
-    private int sentenceCount =  new Count_Word_Sentence().countSentence();
-    private String fileName = new Count_Word_Sentence().getFileName();
+    private final int wordCount;
+    private final int sentenceCount;
+    private String fileName;
+    private final String directory;
+
+    public File_Statistics() {
+        Count_Word_Sentence counter = new Count_Word_Sentence();
+//        counter.setDirectory();
+        wordCount = counter.countWords();
+        sentenceCount = counter.countSentence();
+        fileName = Count_Word_Sentence.getFileName();
+        directory = Count_Word_Sentence.getDirectory().getParent();
+
+    }
 
 
     public void createNewFile() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Укажите путь где хотите создать файл:");
         fileName = fileName.substring(0, fileName.length() - 4);
-        File file = new File(scan.nextLine() + "\\" + fileName + " statistics");
+        File file = new File((directory + "\\" + fileName + " statistics"));
 
         try {
             if (file.createNewFile()) {
-                System.out.println("Файл создан. Путь: " + file.getAbsolutePath());
+                System.out.println("Файл успешно создан. Путь: " + file.getAbsolutePath());
             } else {
-                System.out.println("Файл уже создан. Путь: " + file.getAbsolutePath());
+                System.out.println("Не получилось создать файл. Так как файл с таким именем уже имеется.  Путь: " + file.getAbsolutePath());
             }
 
             FileWriter fileWriter = new FileWriter(file);
