@@ -1,7 +1,7 @@
 package parkingLastVeriosn;
 
 public interface Parkable {
-    public boolean park(String carID);
+    public boolean park(Car carID, int hour);
 
-    public void unPark(String carID);
+    public int unPark(Car carID, int hour);
 }
